@@ -1,12 +1,14 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
-function Footer() {
-  const year = new Date().getFullYear();
+
+export default function Footer() {
   return (
-    <footer>
-      <p>Copyright ⓒ {year}</p>
-    </footer>
+    <Typography variant="body2" color="text.secondary" align="center">
+      {'Copyright © '}
+        Syntax Highlighter   
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }
-
-export default Footer;

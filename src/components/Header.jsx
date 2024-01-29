@@ -16,7 +16,15 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: mode ? '#1a1a1a' : '#ffffff' }}>
+      <AppBar
+        position="absolute"
+        color="default"
+        elevation={0}
+        sx={{
+          position: 'relative',
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Code Syntax Highlighter
