@@ -16,7 +16,6 @@ async function getPalette() {
       const response = await axios.get('https://www.thecolorapi.com/random');
       colors_dict.push({ title: colors[i], color: response.data.hex.value });
     }
-
     return colors_dict;
   } catch (error) {
     console.error('Error', error.message);
