@@ -3,3 +3,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+footer {
+  position: absolute;
+  font-weight: 700;
+  bottom: .5%;
+  text-align: center;
+  width: 100%;
+}
