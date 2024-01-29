@@ -9,7 +9,7 @@ import axios from 'axios';
 
 async function getPalette() {
   try {
-    const colors = ['strings', 'reserved words', 'types', 'one row comments', 'multline row comments'];
+    const colors = ['strings', 'reserved words', 'types', 'one line comments', 'multline comments'];
     const colors_dict = [];
 
     for (let i = 0; i < 5; i++) {
