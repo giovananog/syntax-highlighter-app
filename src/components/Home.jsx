@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -8,31 +8,17 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AddressForm from './Code';
-import PaymentForm from './Palette';
-import Footer from './Footer';
-import Review from './Result';
+import Code from './Code';
+import Palette from './Palette';
+import Result from './Result';
 import Header from './Header';
-
-
+import Footer from './Footer';
 
 const steps = ['Code', 'Palette', 'Result'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
-export default function Home() {
-  const [activeStep, setActiveStep] = React.useState(0);
+const Home = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [code, setCode] = useState('');
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -40,6 +26,10 @@ export default function Home() {
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
+  };
+
+  const handleUpdateCode = (newCode) => {
+    setCode(newCode);
   };
 
   return (
@@ -58,27 +48,28 @@ export default function Home() {
               </Step>
             ))}
           </Stepper>
-            <React.Fragment>
-              {getStepContent(activeStep)}
-              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
-                  </Button>
-                )}
-
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Try Again' : 'Next'}
+          <React.Fragment>
+            {activeStep === 0 && <Code onUpdateCode={handleUpdateCode} />}
+            {activeStep === 1 && <Palette />}
+            {activeStep === 2 && <Result code={code} />}
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              {activeStep !== 0 && (
+                <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                  Back
                 </Button>
-              </Box>
-            </React.Fragment>
+              )}
+              {activeStep !== steps.length - 1 && (
+                <Button variant="contained" onClick={handleNext} sx={{ mt: 3, ml: 1 }}>
+                  Next
+                </Button>
+              )}
+            </Box>
+          </React.Fragment>
         </Paper>
         <Footer />
       </Container>
     </React.Fragment>
   );
-}
+};
+
+export default Home;

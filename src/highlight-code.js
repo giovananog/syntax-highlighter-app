@@ -1,11 +1,10 @@
-const applyCode = (txt, reg, color) => txt.replace(reg, `<span style="color: #${color}"><b>$1</b></span>`);
+const applyCode = (txt, reg, color) => txt.replace(reg, `<span style="color: ${color}"><b>$&</b></span>`);
 
-const text = a;
 
-const codeRegex = /<code>[\s\S]*<\/code>/i;
-let code = text.match(codeRegex)[0];
+
 
 const applySyntaxHighlight = (code, language) => {
+  
   switch (language) {
     case 'javascript':
       // Reserved Words
@@ -17,7 +16,7 @@ const applySyntaxHighlight = (code, language) => {
       // Multiline comments
       code = applyCode(code, /(\/\*[\s\S]*\*\/)/g, '267703');
       // Strings
-      code = applyCode(code, /(\".*?\")/g, 'ce9178');
+      code = applyCode(code, /(".*?")/g, 'ce9178');
       break;
     case 'java':
       // Reserved Words
@@ -50,8 +49,21 @@ const applySyntaxHighlight = (code, language) => {
   return code;
 };
 
-const selectedLanguage = 'javascript'; 
 
-code = applySyntaxHighlight(code, selectedLanguage);
+export default function Apply (cd) {
+    
+    const text = `<code>${cd}</code>`;
+    
+    console.log(cd);
+    const codeRegex = /<code>[\s\S]*<\/code>/i;
+    var code = text.match(codeRegex)[0];
+    
+    
+    const selectedLanguage = 'javascript'; 
+    
+    code = applySyntaxHighlight(code, selectedLanguage);
+    
+    return text.replace(codeRegex, code);
 
-const finalContent = text.replace(codeRegex, code);
+}
+

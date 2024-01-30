@@ -13,11 +13,18 @@ const codeExample = `function example() {
   console.log('Olá, Mundo!');
 }`;
 
-export default function Code() {
+const Code = ({ onUpdateCode }) => {
   const [language, setLanguage] = useState('javascript');
+  const [code, setCode] = useState(codeExample);
 
   const handleChangeLanguage = (event) => {
     setLanguage(event.target.value);
+  };
+
+  const handleChangeCode = (event) => {
+    const newCode = event.target.value;
+    setCode(newCode);
+    onUpdateCode(newCode);
   };
 
   return (
@@ -30,7 +37,8 @@ export default function Code() {
             label="Code"
             multiline
             rows={15}
-            defaultValue={codeExample}
+            value={code}
+            onChange={handleChangeCode}
             variant="filled"
           />
         </Grid>
@@ -61,4 +69,6 @@ export default function Code() {
       </Grid>
     </React.Fragment>
   );
-}
+};
+
+export default Code;
