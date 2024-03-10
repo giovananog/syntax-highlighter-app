@@ -11,11 +11,11 @@ const applySyntaxHighlight = (code, language, colors) => {
       // Strings
       code = applyCode(code, /(.*)/g, colors[0].color);
       // Reserved Words
-      code = applyCode(code, /\b(var|function|if|else|for|while|console.log)\b/g, colors[1].color);
+      code = applyCode(code, /\b(var|function|if|else|for|while|console|log)\b/g, colors[1].color);
       // Types
-      code = applyCode(code, /\b(string|number|boolean)\b/g, colors[2].color);
+      code = applyCode(code, /\b(string|number|boolean|const)\b/g, colors[2].color);
       // Multiple line comments
-      code = applyCode(code, /(\/\*.*?\*\/)/g, colors[4].color);
+      code = applyCode(code, /(\/\*[\s\S]*?\*\/)/g, colors[4].color);
       // One line comments
       code = applyCode(code, /(\/\/.*?\n)/g, colors[3].color);
       break;
@@ -27,10 +27,10 @@ const applySyntaxHighlight = (code, language, colors) => {
       code = applyCode(code, /\b(package|public|class|static|if|else)\b/g, colors[1].color);
       // Types
       code = applyCode(code, /\b(void|int|char|boolean)\b/g, colors[2].color);
+      // Multiple line comments
+      code = applyCode(code, /(\/\*.*\*\/)/g, colors[3].color);
       // One line comments
       code = applyCode(code, /(\/\/.*?\n)/g, colors[4].color);
-      // Multiple line comments
-      code = applyCode(code, /(\/\*.*?\*\/)/g, colors[3].color);
       break;
 
     case 'python':

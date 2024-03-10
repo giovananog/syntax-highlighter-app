@@ -9,13 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
-const codeExample = `function example() {
-  console.log('Olá, Mundo!');
-}`;
-
 const Code = ({ onUpdateCode, onUpdateLanguage }) => {
   const [language, setLanguage] = useState('javascript');
-  const [code, setCode] = useState(codeExample);
+  const [code, setCode] = useState();
 
   const handleChangeLanguage = (event) => {
     setLanguage(event.target.value);
