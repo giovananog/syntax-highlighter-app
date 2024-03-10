@@ -4,10 +4,10 @@ A basic app that highlights code syntax in different programming languages. It w
 
 ## User Interface
 <div style="display: flex; justify-content: space-between; align-items: center;">
-<img src="path/to/image1.jpg" alt="Image 1" width="300" />
-<img src="path/to/image2.jpg" alt="Image 2" width="300" />
+<img src="public/image1.jpg" alt="Image 1" width="300" />
+<img src="public/image2.jpg" alt="Image 2" width="300" />
 </div>
-<img src="path/to/image3.jpg" alt="Image 3" width="600" />
+<img src="public/image3.jpg" alt="Image 3" width="600" />
 
 
 ## Features
@@ -29,7 +29,7 @@ Ensure you have Node.js and npm installed.
 1. Clone the repository:
 
    ```bash
-   git clone https://your-repository.git
+   git clone https://github.com/giovananog/syntax-highlighter-app.git
    ```
 
 2. Install dependencies:
