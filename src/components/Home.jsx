@@ -19,6 +19,7 @@ const steps = ['Code', 'Palette', 'Result'];
 const Home = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [code, setCode] = useState('');
+  const [language, setLanguage] = useState('javascript');
   const [colors, setColors] = useState([]);
 
   const handleNext = () => {
@@ -31,6 +32,10 @@ const Home = () => {
 
   const handleUpdateCode = (newCode) => {
     setCode(newCode);
+  };
+
+  const handleUpdateLanguage = (newLanguage) => {
+    setLanguage(newLanguage);
   };
 
   const handleUpdateColors = (newColors) => {
@@ -54,9 +59,9 @@ const Home = () => {
             ))}
           </Stepper>
           <React.Fragment>
-            {activeStep === 0 && <Code onUpdateCode={handleUpdateCode} />}
+            {activeStep === 0 && <Code onUpdateCode={handleUpdateCode} onUpdateLanguage={handleUpdateLanguage} />}
             {activeStep === 1 && <Palette onUpdateColors={handleUpdateColors}/>}
-            {activeStep === 2 && <Result code={code} colors={colors}/>}
+            {activeStep === 2 && <Result code={code} colors={colors} language={language}/>}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
               {activeStep !== 0 && (
                 <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>

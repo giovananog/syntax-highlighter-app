@@ -13,12 +13,13 @@ const codeExample = `function example() {
   console.log('Olá, Mundo!');
 }`;
 
-const Code = ({ onUpdateCode }) => {
+const Code = ({ onUpdateCode, onUpdateLanguage }) => {
   const [language, setLanguage] = useState('javascript');
   const [code, setCode] = useState(codeExample);
 
   const handleChangeLanguage = (event) => {
     setLanguage(event.target.value);
+    onUpdateLanguage(event.target.value);
   };
 
   const handleChangeCode = (event) => {
