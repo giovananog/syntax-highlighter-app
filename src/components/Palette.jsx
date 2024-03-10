@@ -24,7 +24,7 @@ async function getPalette() {
 }
 
 
-export default function Palette() {
+export default function Palette({ onUpdateColors }) {
 
   const [colors, setColors] = React.useState([]);
 
@@ -32,6 +32,7 @@ export default function Palette() {
     async function fetchData() {
       const result = await getPalette();
       setColors(result);
+      onUpdateColors(result);
     }
 
     fetchData();
@@ -40,7 +41,7 @@ export default function Palette() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Palette Color
+        Color Palette 
       </Typography>
       <Grid container spacing={3} justifyContent="center" >
 

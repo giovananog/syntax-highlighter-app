@@ -19,6 +19,7 @@ const steps = ['Code', 'Palette', 'Result'];
 const Home = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [code, setCode] = useState('');
+  const [colors, setColors] = useState([]);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -32,6 +33,10 @@ const Home = () => {
     setCode(newCode);
   };
 
+  const handleUpdateColors = (newColors) => {
+    setColors(newColors);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -39,7 +44,7 @@ const Home = () => {
       <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Syntax Highlight
+            Syntax Highlighter
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -50,8 +55,8 @@ const Home = () => {
           </Stepper>
           <React.Fragment>
             {activeStep === 0 && <Code onUpdateCode={handleUpdateCode} />}
-            {activeStep === 1 && <Palette />}
-            {activeStep === 2 && <Result code={code} />}
+            {activeStep === 1 && <Palette onUpdateColors={handleUpdateColors}/>}
+            {activeStep === 2 && <Result code={code} colors={colors}/>}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
               {activeStep !== 0 && (
                 <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>

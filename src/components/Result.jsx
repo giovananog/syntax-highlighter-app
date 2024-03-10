@@ -4,8 +4,8 @@ import IconButton from '@mui/material/IconButton';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import Apply from '../highlight-code';
 
-const Result = ({ code }) => {
-  const highlightedCode = Apply(code);
+const Result = ({ code, colors }) => {
+  const highlightedCode = Apply(code, colors);
 
   return (
     <React.Fragment>

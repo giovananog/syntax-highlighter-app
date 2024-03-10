@@ -1,52 +1,49 @@
 const applyCode = (txt, reg, color) => {
-  // console.log('Input Text:', txt);
-  // console.log('Regular Expression:', reg);
-  // console.log('Color:', color);
-  
-  return txt.replace(reg, `<span style="color: #${color}"><b>$1</b></span>`);
+  return txt.replace(reg, `<span style="color: ${color}"><b>$1</b></span>`);
 };
 
 
-const applySyntaxHighlight = (code, language) => {
-  
+const applySyntaxHighlight = (code, language, colors) => {
+
+  console.log(colors);
   switch (language) {
     case 'javascript':
       // Strings
-      code = applyCode(code, /(.*)/g, 'ce9178');
+      code = applyCode(code, /(.*)/g, colors[0].color);
       // Reserved Words
-      code = applyCode(code, /\b(var|function|if|else|for|while|console.log)\b/g, 'd857cf');
+      code = applyCode(code, /\b(var|function|if|else|for|while|console.log)\b/g, colors[1].color);
       // Types
-      code = applyCode(code, /\b(string|number|boolean)\b/g, '1385e2');
+      code = applyCode(code, /\b(string|number|boolean)\b/g, colors[2].color);
       // Multple line comments
-      code = applyCode(code, /(\/\*.*?\*\/)/g, '267703');
+      code = applyCode(code, /(\/\*.*?\*\/)/g, colors[4].color);
       // One line comments
-      code = applyCode(code, /(\/\/.*?\n)/g, '267703');
+      code = applyCode(code, /(\/\/.*?\n)/g, colors[3].color);
       break;
 
     case 'java':
       // Strings
-      code = applyCode(code, /(".*?")/g, 'ce9178');
+      code = applyCode(code, /(".*?")/g, colors[0].color);
       // Reserved Words
-      code = applyCode(code, /\b(package|public|class|static|if|else)\b/g, 'd857cf');
+      code = applyCode(code, /\b(package|public|class|static|if|else)\b/g, colors[1].color);
       // Types
-      code = applyCode(code, /\b(void|int|char|boolean)\b/g, '1385e2');
+      code = applyCode(code, /\b(void|int|char|boolean)\b/g, colors[2].color);
       // One line comments
-      code = applyCode(code, /(\/\/.*?\n)/g, '267703');
+      code = applyCode(code, /(\/\/.*?\n)/g, colors[4].color);
       // Multple line comments
-      code = applyCode(code, /(\/\*.*?\*\/)/g, '267703');
+      code = applyCode(code, /(\/\*.*?\*\/)/g, colors[3].color);
       break;
 
     case 'python':
       // Strings
-      code = applyCode(code, /(".*?")/g, 'ce9178');
+      code = applyCode(code, /(".*?")/g, colors[0].color);
       // Reserved Words
-      code = applyCode(code, /\b(def|class|if|else|while)\b/g, 'd857cf');
+      code = applyCode(code, /\b(def|class|if|else|while)\b/g, colors[1].color);
       // Types
-      code = applyCode(code, /\b(str|int|float|bool)\b/g, '1385e2');
+      code = applyCode(code, /\b(str|int|float|bool)\b/g, colors[2].color);
       // One line comments
-      code = applyCode(code, /(#[^\n]*)/g, '267703');
+      code = applyCode(code, /(#[^\n]*)/g, colors[4].color);
       // Multple line comments
-      code = applyCode(code, /(\/\*.*?\*\/)/g, '267703');
+      code = applyCode(code, /(\/\*.*?\*\/)/g, colors[3].color);
       break;
     default:
       console.warn('Not a supported language');
@@ -55,14 +52,14 @@ const applySyntaxHighlight = (code, language) => {
   return code;
 };
 
-export default function Apply(cd) {
+export default function Apply(cd, colors) {
   const text = `<code>${cd}</code>`;
 
   const codeRegex = /<code>[\s\S]*<\/code>/i;
   var code = text.match(codeRegex)[0];
 
   const selectedLanguage = 'javascript';
-  code = applySyntaxHighlight(code, selectedLanguage);
+  code = applySyntaxHighlight(code, selectedLanguage, colors);
 
   return `<pre>${text.replace(codeRegex, code)}</pre>`
 }
