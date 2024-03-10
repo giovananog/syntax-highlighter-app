@@ -1,13 +1,11 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import Apply from '../highlight-code';
 
 const Result = ({ code }) => {
   const highlightedCode = Apply(code);
-  console.log(highlightedCode);
 
   return (
     <React.Fragment>
@@ -23,6 +21,6 @@ const Result = ({ code }) => {
       </Grid>
     </React.Fragment>
   );
-}
+};
 
 export default Result;
