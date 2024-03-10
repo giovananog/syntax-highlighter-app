@@ -4,17 +4,16 @@ A basic app that highlights code syntax in different programming languages. It w
 
 ## User Interface
 <div style="display: flex; justify-content: space-between; align-items: center;">
-<img src="public/image1.jpg" alt="Image 1" width="300" />
-<img src="public/image2.jpg" alt="Image 2" width="300" />
+<img src="public/image1.png" alt="Image 1" width="400" />
+<img src="public/image2.png" alt="Image 2" width="400" />
 </div>
-<img src="public/image3.jpg" alt="Image 3" width="600" />
+<img src="public/image3.png" alt="Image 3" width="800" />
 
 
 ## Features
 
 - Syntax highlighting for languages like JavaScript, Java, and Python.
-- Configurable color palette.
-- Light/dark theme.
+- Random color palette.
 
 ## How to Use
 
