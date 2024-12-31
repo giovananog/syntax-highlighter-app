@@ -1,29 +1,40 @@
 # Syntax Highlighter
 
-A basic app that highlights code syntax in different programming languages. It was a great way for me to practice React and improve my regex skills.
+![GitHub repo size](https://img.shields.io/github/repo-size/giovananog/syntax-highlighter-app?style=for-the-badge)
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML](https://img.shields.io/badge/-HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/-CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## User Interface
-<div style="display: flex; justify-content: space-between; align-items: center;">
-<img src="public/image1.png" alt="Image 1" width="400" />
-<img src="public/image2.png" alt="Image 2" width="400" />
+<br>
+<div align="center">
+  <img src="public/image3.png" alt="Syntax Highlighter Interface" width="800"/>
 </div>
-<img src="public/image3.png" alt="Image 3" width="800" />
 
+> A basic application that highlights code syntax in different programming languages. Built as a way to practice React and improve regex skills.
 
-## Features
+---
 
-- Syntax highlighting for languages like JavaScript, Java, and Python.
-- Random color palette.
+## 🛠️ Features
 
-## How to Use
+- **Syntax Highlighting**: Supports JavaScript, Java, Python, and more.
+- **Customizable Palette**: Allows users to pick unique color schemes.
+- **Real-Time Results**: View syntax highlighting instantly.
 
-1. **Code:** Insert your code in the "Code" section.
-2. **Palette:** Choose your preferred colors in the "Palette" section.
-3. **Result:** View the highlighted result in the "Result" section.
+---
 
-## Installation
+## 🎨 User Interface
 
-Ensure you have Node.js and npm installed.
+<div align="center" style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="public/image1.png" alt="Image 1" width="400"/>
+  <img src="public/image2.png" alt="Image 2" width="400"/>
+</div>
+
+---
+
+## 💻 Installation
+
+Before you start, ensure you have **Node.js** and **npm** installed.
 
 1. Clone the repository:
 
@@ -31,16 +42,26 @@ Ensure you have Node.js and npm installed.
    git clone https://github.com/giovananog/syntax-highlighter-app.git
    ```
 
-2. Install dependencies:
+2. Navigate to the project directory and install dependencies:
 
    ```bash
+   cd syntax-highlighter-app
    npm install
    ```
 
-3. Run apllication:
+3. Start the application:
 
    ```bash
    npm start
    ```
 
-4. Open http://localhost:3000 in your browser.
+4. Open the app in your browser at: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🚀 How to Use
+
+1. **Code**: Insert your code in the "Code" section.
+2. **Palette**: Customize your color scheme in the "Palette" section.
+3. **Result**: See the highlighted code in the "Result" section.
+
